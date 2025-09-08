@@ -3,7 +3,11 @@ from pydantic import BaseModel
 import openai
 from .upload import documents
 
-openai.api_key = "YOUR_OPENAI_API_KEY"
+import os
+import openai
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
 router = APIRouter()
 
 class Question(BaseModel):
